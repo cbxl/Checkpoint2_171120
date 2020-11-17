@@ -33,4 +33,15 @@ INSERT INTO Student(studentFirstName, studentLastName, FK_classId)
 			('Adrien', 'Faure', 2),('Flavien', 'Besseau', 2),('Alexandre', 'D', 2),('Emeric', 'P', 2),('Emilie', 'A', 2);
 GO
 
-
+INSERT INTO Assignment(assignmentNote, FK_studentId)
+	VALUES (12.5, 1), (11.5, 1),
+		(14.5, 2), (18.5, 2),
+		(15, 3), (13, 3),
+		(12.5, 4), (12.5, 4),
+		(16.5, 5), (18.5, 5),
+		(12, 6), (11, 6),
+		(15, 7), (11, 7),
+		(10.5, 8), (11.5, 8),
+		(15, 9), (15, 9),
+		(10, 10), (15, 10);
+GO
