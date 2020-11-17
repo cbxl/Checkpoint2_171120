@@ -23,17 +23,18 @@ namespace Checkpoint2Project
         internal static ICollection<Student> SelectAllStudents()
         {
             SqlCommand command = _connection.CreateCommand();
-            command.CommandText = "SELECT * FROM Student";
+            command.CommandText = "SELECT studentLastName, studentFirstName, AVG (assignmentNote) FROM Assignment INNER JOIN Student ON studentId = FK_studentId GROUP BY studentLastName, studentFirstName";
             SqlDataReader reader = command.ExecuteReader();
             List<Student> students = new List<Student>();
             while (reader.Read())
             {
                 Student student = new Student
                 {
-                    studentId = reader.GetInt32(0),
-                    studentFirstName = reader.GetString(1),
-                    studentLastName = reader.GetString(2),
-                    classId = reader.GetInt32(3)                    
+                    
+                    studentFirstName = reader.GetString(0),
+                    studentLastName = reader.GetString(1),
+                    average = reader.GetDouble(2)
+                    
                 };
                 students.Add(student);
             }
@@ -41,6 +42,7 @@ namespace Checkpoint2Project
             return students;
         }
 
+        
 
         internal static ICollection<Student> SelectStudentByLastName(String studentLastName)
         {

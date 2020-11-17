@@ -9,9 +9,11 @@ namespace Checkpoint2Project
         public String studentLastName { get; set; }
         public Int32 classId { get; set; }
 
-        public override string ToString()
-        {
-            return studentFirstName + " " + studentLastName;
-        }
+        public Double average { get; set; }
+
+        //public override string ToString()
+        //{
+        //    return studentFirstName + " " + studentLastName + " " + "moyenne = "+average;
+        //}
     }
 }

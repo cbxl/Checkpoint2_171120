@@ -19,14 +19,14 @@ namespace Checkpoint2Project
             ICollection<Student> students = DataAbstractionLayer.SelectAllStudents();
             foreach (Student student in students)
             {
-                Console.WriteLine(student);
+                Console.WriteLine(student.studentFirstName + " " + student.studentLastName + " : moyenne = " + student.average);
             }
 
 
             ICollection<Student> studentName = DataAbstractionLayer.SelectStudentByLastName("Bui");
             foreach (Student student in studentName)
             {
-                Console.WriteLine(student);
+                Console.WriteLine(student.studentFirstName +" " + student.studentLastName);
             }
 
             DataAbstractionLayer.Disconnect();
