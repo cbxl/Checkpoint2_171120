@@ -65,5 +65,26 @@ namespace Checkpoint2Project
             reader.Close();
             return students;
         }
+
+        internal static ICollection<Class> SelectAllPromotions()
+        {
+            SqlCommand command = _connection.CreateCommand();
+            command.CommandText = "SELECT classLanguage, AVG (assignmentNote) FROM Assignment INNER JOIN Student ON studentId = FK_studentId INNER JOIN Class ON classId = FK_classId GROUP BY classLanguage";
+            SqlDataReader reader = command.ExecuteReader();
+            List<Class> promotions = new List<Class>();
+            while (reader.Read())
+            {
+                Class promotion = new Class
+                {
+
+                    classLanguage = reader.GetString(0),
+                    average = reader.GetDouble(1)
+
+                };
+                promotions.Add(promotion);
+            }
+            reader.Close();
+            return promotions;
+        }
     }
 }

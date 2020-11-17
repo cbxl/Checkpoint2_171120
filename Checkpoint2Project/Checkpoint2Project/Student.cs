@@ -11,9 +11,5 @@ namespace Checkpoint2Project
 
         public Double average { get; set; }
 
-        //public override string ToString()
-        //{
-        //    return studentFirstName + " " + studentLastName + " " + "moyenne = "+average;
-        //}
     }
 }

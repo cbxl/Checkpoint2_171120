@@ -29,6 +29,12 @@ namespace Checkpoint2Project
                 Console.WriteLine(student.studentFirstName +" " + student.studentLastName);
             }
 
+            ICollection<Class> promotions = DataAbstractionLayer.SelectAllPromotions();
+            foreach (Class promotion in promotions)
+            {
+                Console.WriteLine(promotion.classLanguage + " " + " : moyenne = " + promotion.average);
+            }
+
             DataAbstractionLayer.Disconnect();
         }
     }
